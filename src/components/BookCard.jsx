@@ -2,14 +2,16 @@ import { Link } from "react-router-dom";
 import Flex from "./ui/Flex";
 import heartIcon from "../assets/icons/heart.svg";
 import heartFillIcon from "../assets/icons/heartFill.svg";
+import { useDispatch } from "react-redux";
+import { toggleWishlist } from "../redux/slices/wishlistSlice";
 const BookCard = ({ book }) => {
+  const dispatch = useDispatch();
   return (
     <div className="relative w-[24%] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <Flex className="items-center justify-center w-full border-b border-b-slate-300 h-1/2">
+      <Flex className="items-center justify-center w-full border-b border-b-slate-300 h-1/2 ">
         <Link to={`/books/${book.id}`} className="h-[90%]">
-          {" "}
           <img
-            className=" h-[90%] object-contain rounded-md"
+            className=" h-[90%] w-[90%] m-auto object-contain rounded-md"
             src={book?.formats["image/jpeg"]}
             alt
           />
@@ -52,7 +54,10 @@ const BookCard = ({ book }) => {
             </svg>
           </Link>
         </Flex>
-        <div className="absolute cursor-pointer right-4 bottom-5">
+        <div
+          className="absolute cursor-pointer right-4 bottom-5"
+          onClick={() => dispatch(toggleWishlist(book))}
+        >
           <img
             src={heartIcon || heartFillIcon}
             alt="heartIcon"
