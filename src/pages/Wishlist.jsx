@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import BookCard from "../components/BookCard";
+import BookCard from "../components/books/BookCard";
 import Flex from "../components/ui/Flex";
 import Container from "../components/ui/Container";
 import ErrorMessage from "../components/ui/ErrorMessage";

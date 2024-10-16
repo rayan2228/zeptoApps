@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import { useGetAllBooksQuery } from "../redux/slices/apiSlice";
+import { useGetAllBooksQuery } from "../../redux/slices/apiSlice";
 import BookCard from "./BookCard";
-import CardLoading from "./ui/CardLoading";
-import ErrorMessage from "./ui/ErrorMessage";
-import Flex from "./ui/Flex";
-import Pagination from "./ui/Pagination";
+import CardLoading from "../ui/CardLoading";
+import ErrorMessage from "../ui/ErrorMessage";
+import Flex from "../ui/Flex";
+import Pagination from "../ui/Pagination";
 
 let fakeArr = Array(8).fill(null);
 let content;
@@ -31,7 +31,7 @@ const BooksContainer = () => {
       <BookCard key={book.id} book={book} />
     ));
   return (
-    <Flex className={"my-5 flex-wrap gap-5 "}>
+    <Flex className={"my-5 flex-wrap gap-5 justify-center"}>
       {content}
       {books?.results?.length && <Pagination total={books?.count} />}
     </Flex>

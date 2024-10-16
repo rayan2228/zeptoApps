@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Image from "./ui/Image";
-import Flex from "./ui/Flex";
-
+import Image from "../ui/Image";
+import Flex from "../ui/Flex";
+import bookPlaceholder from "../../assets/bookPlaceholder.png";
 const BookCardSearch = ({ book }) => {
   return (
     <Link
@@ -11,7 +11,7 @@ const BookCardSearch = ({ book }) => {
       <Flex className="items-center justify-center p-4">
         <Image
           className=" h-[90%] w-[90%] m-auto object-contain rounded-md"
-          src={book?.formats["image/jpeg"]}
+          src={book?.formats["image/jpeg"] || bookPlaceholder}
           alt={book.title}
         />
       </Flex>

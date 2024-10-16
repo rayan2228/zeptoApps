@@ -2,4 +2,5 @@ import { lazy } from "react";
 
 const Home = lazy(() => import("./Home"))
 const Wishlist = lazy(() => import("./Wishlist"))
-export { Home, Wishlist }
+const BookDetails = lazy(() => import("./BookDetails"))
+export { Home, Wishlist ,BookDetails}

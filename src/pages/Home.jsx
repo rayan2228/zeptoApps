@@ -1,4 +1,4 @@
-import BooksContainer from "../components/BooksContainer";
+import BooksContainer from "../components/books/BooksContainer";
 import Container from "../components/ui/Container";
 
 const Home = () => {

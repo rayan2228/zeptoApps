@@ -3,7 +3,7 @@ import { useGetSearchResultsQuery } from "../../redux/slices/apiSlice";
 import useDebounce from "../../hooks/useDebounce";
 import ErrorMessage from "../ui/ErrorMessage";
 import CardLoadingSearch from "../ui/CardLoadingSearch";
-import BookCardSearch from "../BookCardSearch";
+import BookCardSearch from "../books/BookCardSearch";
 const SearchWrapper = () => {
   let content;
   const [search, setSearch] = useState("");

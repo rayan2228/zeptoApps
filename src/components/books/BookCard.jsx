@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import Flex from "./ui/Flex";
-import heartIcon from "../assets/icons/heart.svg";
-import heartFillIcon from "../assets/icons/heartFill.svg";
+import Flex from "../ui/Flex";
+import heartIcon from "../../assets/icons/heart.svg";
+import heartFillIcon from "../../assets/icons/heartFill.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleWishlist } from "../redux/slices/wishlistSlice";
-import Image from "./ui/Image";
-import bookPlaceholder from "../assets/bookPlaceholder.png";
+import { toggleWishlist } from "../../redux/slices/wishlistSlice";
+import Image from "../ui/Image";
+import bookPlaceholder from "../../assets/bookPlaceholder.png";
 const BookCard = ({ book }) => {
   const dispatch = useDispatch();
   const wishlists = useSelector((state) => state.wishlistSlice.items);

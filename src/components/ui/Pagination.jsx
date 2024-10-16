@@ -26,7 +26,7 @@ const Pagination = ({ total }) => {
             onClick={() => handleClick(i)}
             className={`px-3 py-1 mx-1 rounded ${
               currentPage === i
-                ? "bg-red-500 text-white font-bold"
+                ? "bg-gray-500 text-white font-bold"
                 : "bg-gray-200"
             }`}
           >
@@ -51,7 +51,7 @@ const Pagination = ({ total }) => {
             onClick={() => handleClick(1)}
             className={`px-3 py-1 mx-1 rounded ${
               currentPage === 1
-                ? "bg-red-500 text-white font-bold"
+                ? "bg-gray-500 text-white font-bold"
                 : "bg-gray-200"
             }`}
           >
@@ -74,7 +74,7 @@ const Pagination = ({ total }) => {
             onClick={() => handleClick(i)}
             className={`px-3 py-1 mx-1 rounded ${
               currentPage === i
-                ? "bg-red-500 text-white font-bold"
+                ? "bg-gray-500 text-white font-bold"
                 : "bg-gray-200"
             }`}
           >
@@ -97,7 +97,7 @@ const Pagination = ({ total }) => {
             onClick={() => handleClick(totalPages)}
             className={`px-3 py-1 mx-1 rounded ${
               currentPage === totalPages
-                ? "bg-red-500 text-white font-bold"
+                ? "bg-gray-500 text-white font-bold"
                 : "bg-gray-200"
             }`}
           >
@@ -115,7 +115,7 @@ const Pagination = ({ total }) => {
       {currentPage > 1 && (
         <button
           onClick={() => handleClick(currentPage - 1)}
-          className="px-3 py-1 mx-1 text-white bg-blue-500 rounded"
+          className="px-3 py-1 mx-1 text-white bg-gray-500 rounded"
         >
           Previous
         </button>
@@ -126,7 +126,7 @@ const Pagination = ({ total }) => {
       {currentPage < totalPages && (
         <button
           onClick={() => handleClick(currentPage + 1)}
-          className="px-3 py-1 mx-1 text-white bg-blue-500 rounded"
+          className="px-3 py-1 mx-1 text-white bg-gray-500 rounded"
         >
           Next
         </button>
