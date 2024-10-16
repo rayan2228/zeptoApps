@@ -64,7 +64,7 @@ const BookCard = ({ book }) => {
           <img
             src={isBookInWishlist(book.id) ? heartFillIcon : heartIcon}
             alt="heartIcon"
-            className="w-10 h-10 fill-[#1C274C] "
+            className="w-10 h-10"
           />
         </div>
       </div>

@@ -7,8 +7,7 @@ let fakeArr = Array(8).fill(null);
 let content;
 const BooksContainer = () => {
   const { data: books, isLoading, isError,error } = useGetAllBooksQuery();
-  console.log("aa",error);
-  
+
   if (isLoading)
     content = fakeArr.map((_, index) => <CardLoading key={index} />);
   if (!isLoading && isError) content = <ErrorMessage title={error.status} message={error?.error}/>;
