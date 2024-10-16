@@ -6,7 +6,10 @@ export const apiSlice = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_API_BASEURL }),
     endpoints: (builder) => ({
         getAllBooks: builder.query({
-            query: () => `/books`,
+            query: (currentPage) => {
+                console.log("api", currentPage);
+                
+               return `/books/?page=${currentPage}`},
         }),
         getSearchResults: builder.query({
             query: (search) => `/books?search=${search}`

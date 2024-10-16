@@ -5,6 +5,7 @@ import heartFillIcon from "../assets/icons/heartFill.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleWishlist } from "../redux/slices/wishlistSlice";
 import Image from "./ui/Image";
+import bookPlaceholder from "../assets/bookPlaceholder.png";
 const BookCard = ({ book }) => {
   const dispatch = useDispatch();
   const wishlists = useSelector((state) => state.wishlistSlice.items);
@@ -15,7 +16,7 @@ const BookCard = ({ book }) => {
         <Link to={`/books/${book.id}`} className="h-[90%]">
           <Image
             className=" h-[90%] w-[90%] m-auto object-contain rounded-md"
-            src={book?.formats["image/jpeg"]}
+            src={book?.formats["image/jpeg"] || bookPlaceholder}
             alt={book.title}
           />
         </Link>
@@ -23,11 +24,11 @@ const BookCard = ({ book }) => {
       <div className="p-5">
         <Link to={`/books/${book.id}`}>
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            {book.title.slice(0, 50) + " ..."}
+            {book.title?.slice(0, 50) + " ..."}
           </h5>
         </Link>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          {book?.subjects[0].slice(0, 100)}
+          {book?.subjects[0]?.slice(0, 100)}
         </p>
 
         <h5 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">
