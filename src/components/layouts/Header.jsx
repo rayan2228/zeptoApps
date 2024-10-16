@@ -4,6 +4,8 @@ import Flex from "../ui/Flex";
 import heartIcon from "../../assets/icons/heart.svg";
 import heartFillIcon from "../../assets/icons/heartFill.svg";
 import { useSelector } from "react-redux";
+import { useState } from "react";
+import SearchModal from "../modal/SearchModal";
 let navList = [
   {
     name: "home",
@@ -11,6 +13,10 @@ let navList = [
   },
 ];
 const Header = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
   const wishlists = useSelector((state) => state.wishlistSlice.items);
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -33,22 +39,24 @@ const Header = () => {
               />
               <span>Wishlist</span>
             </Link>
-
-            <svg
-              className="w-6 h-6 text-gray-500 dark:text-gray-400"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 20 20"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-              />
-            </svg>
+            <div onClick={() => openModal()} className="cursor-pointer">
+              <svg
+                className="w-6 h-6 text-gray-500 dark:text-gray-400"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                />
+              </svg>
+            </div>
+            {isModalOpen && <SearchModal onclose={() => closeModal()} />}
           </Flex>
           <div
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
