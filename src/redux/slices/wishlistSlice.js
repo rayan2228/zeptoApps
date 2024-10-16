@@ -1,20 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getFromLocalStorage, saveLocalStorage } from '../../helpers/localStoreHelpers';
 
-// Helper functions for localStorage
-const getWishlistFromLocalStorage = () => {
-    const savedWishlist = localStorage.getItem('wishlist');
-    return savedWishlist ? JSON.parse(savedWishlist) : [];
-};
-
-const saveWishlistToLocalStorage = (wishlist) => {
-    localStorage.setItem('wishlist', JSON.stringify(wishlist));
-};
-
-// Wishlist slice
 const wishlistSlice = createSlice({
     name: 'wishlist',
     initialState: {
-        items: getWishlistFromLocalStorage(),
+        items: getFromLocalStorage("wishlist",[]),
     },
     reducers: {
         toggleWishlist: (state, action) => {
@@ -24,7 +14,7 @@ const wishlistSlice = createSlice({
             } else {
                 state.items.push(book);
             }
-            saveWishlistToLocalStorage(state.items); // Persist to localStorage
+            saveLocalStorage("wishlist", state.items);
         },
     },
 });
