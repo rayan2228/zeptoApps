@@ -4,8 +4,8 @@ import useDebounce from "../../hooks/useDebounce";
 import ErrorMessage from "../ui/ErrorMessage";
 import CardLoadingSearch from "../ui/CardLoadingSearch";
 import BookCardSearch from "../BookCardSearch";
-let content;
 const SearchWrapper = () => {
+  let content;
   const [search, setSearch] = useState("");
   const debouncedSearchTerm = useDebounce(search);
   const {
@@ -19,6 +19,11 @@ const SearchWrapper = () => {
   if (isLoading) content = <CardLoadingSearch />;
   if (!isLoading && isError)
     content = <ErrorMessage title={error.status} message={error?.error} />;
+  if (!isLoading && !isError && searchResults?.results?.length === 0) {
+    content = (
+      <ErrorMessage title={"not Found :"} message={"no search result"} />
+    );
+  }
 
   if (!isLoading && !isError && searchResults?.results?.length) {
     content = searchResults?.results?.map((book) => (
@@ -56,7 +61,15 @@ const SearchWrapper = () => {
           />
         </div>
       </div>
-      {content && <div className="mt-3 overflow-y-scroll h-96">{content}</div>}
+      {content && (
+        <div
+          className={`mt-3 overflow-y-scroll ${
+            searchResults?.results?.length && "h-96"
+          }`}
+        >
+          {content}
+        </div>
+      )}
     </>
   );
 };

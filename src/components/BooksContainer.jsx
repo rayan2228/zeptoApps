@@ -6,12 +6,17 @@ import Flex from "./ui/Flex";
 let fakeArr = Array(8).fill(null);
 let content;
 const BooksContainer = () => {
-  const { data: books, isLoading, isError,error } = useGetAllBooksQuery();
+  const { data: books, isLoading, isError, error } = useGetAllBooksQuery();
 
   if (isLoading)
     content = fakeArr.map((_, index) => <CardLoading key={index} />);
-  if (!isLoading && isError) content = <ErrorMessage title={error.status} message={error?.error}/>;
+  if (!isLoading && isError)
+    content = <ErrorMessage title={error.status} message={error?.error} />;
 
+  if (!isLoading && !isError && books?.results?.length === 0)
+    content = (
+      <ErrorMessage title={"not Found :"} message={"no book in the database"} />
+    );
   if (!isLoading && !isError && books?.results?.length)
     content = books?.results?.map((book) => (
       <BookCard key={book.id} book={book} />

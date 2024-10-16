@@ -9,11 +9,7 @@ export const apiSlice = createApi({
             query: () => `/books`,
         }),
         getSearchResults: builder.query({
-            query: (search) => {
-                console.log("search", search);
-
-                return `/books?search=${search}`
-            }
+            query: (search) => `/books?search=${search}`
         })
     }),
 })
