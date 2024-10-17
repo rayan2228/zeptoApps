@@ -13,7 +13,7 @@ const Wishlist = () => {
   }
   return (
     <Container>
-      <Flex className={"my-5 flex-col flex-wrap md:flex-row gap-3 md:gap-x-0 justify-around"}>{content}</Flex>
+      <Flex className={"my-5 flex-col flex-wrap md:flex-row gap-3 md:gap-x-0 justify-around xl:justify-start xl:gap-3"}>{content}</Flex>
     </Container>
   );
 };
