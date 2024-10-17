@@ -6,7 +6,7 @@ const ModalWrapper = ({ onClose, children }) => {
   return (
     <PortalModal>
       <section className="fixed top-0 left-0 z-50 grid w-full h-full place-items-center bg-slate-800/50 backdrop-blur-sm">
-        <div className="relative w-6/12 p-4 mx-auto border rounded-lg shadow-lg bg-slate-900 border-slate-600/50 shadow-slate-400/10">
+        <div className="relative w-[86vw] p-4 mx-auto border rounded-lg shadow-lg xl:w-6/12 bg-slate-900 border-slate-600/50 shadow-slate-400/10">
           {children}
           <div onClick={onClose}>
             <Image

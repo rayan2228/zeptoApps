@@ -32,7 +32,7 @@ const SearchWrapper = () => {
   }
   return (
     <>
-      <div className="w-[96%]">
+      <div className="sm:w-[95%] w-[90%] ">
         <div className="relative">
           <div className="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3">
             <svg
@@ -63,7 +63,7 @@ const SearchWrapper = () => {
       </div>
       {content && (
         <div
-          className={`mt-3 overflow-y-scroll ${
+          className={`mt-3 overflow-y-scroll pr-4 ${
             searchResults?.results?.length && "h-96"
           }`}
         >
