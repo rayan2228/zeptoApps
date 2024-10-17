@@ -112,22 +112,24 @@ const Pagination = ({ total }) => {
   };
 
   return (
-    <Flex className="flex-row justify-center mt-5 ">
+    <Flex className="flex-col justify-center gap-4 mt-5 sm:flex-row sm:gap-0 ">
       {currentPage > 1 && (
         <button
           onClick={() => handleClick(currentPage - 1)}
-          className="px-3 py-1 mx-1 text-white bg-gray-500 rounded"
+          className="px-3 py-1 mx-1 text-white bg-gray-500 rounded "
         >
           Previous
         </button>
       )}
+      <Flex className={"justify-center"}>
 
       {renderPagination()}
+      </Flex>
 
       {currentPage < totalPages && (
         <button
           onClick={() => handleClick(currentPage + 1)}
-          className="px-3 py-1 mx-1 text-white bg-gray-500 rounded"
+          className="px-3 py-1 mx-1 text-white bg-gray-500 rounded "
         >
           Next
         </button>
