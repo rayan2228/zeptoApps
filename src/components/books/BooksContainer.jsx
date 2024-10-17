@@ -31,7 +31,7 @@ const BooksContainer = () => {
       <BookCard key={book.id} book={book} />
     ));
   return (
-    <Flex className={"my-5 flex-wrap gap-5 justify-center"}>
+    <Flex className={"my-5 flex-col flex-wrap md:flex-row gap-3 md:gap-x-0 justify-around"}>
       {content}
       {books?.results?.length && <Pagination total={books?.count} />}
     </Flex>

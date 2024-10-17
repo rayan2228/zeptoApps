@@ -11,8 +11,8 @@ const BookCard = ({ book }) => {
   const wishlists = useSelector((state) => state.wishlistSlice.items);
   const isBookInWishlist = (bookId) => wishlists.some(({ id }) => id == bookId);
   return (
-    <div className="relative w-[24%] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <Flex className="items-center justify-center w-full border-b border-b-slate-300 h-1/2 ">
+    <div className="relative sm:w-auto w-[87vw] xl:w-[24%] md:w-[48%]  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <Flex className="items-center justify-center w-full p-4 border-b md:p-0 border-b-slate-300 h-1/2 ">
         <Link to={`/books/${book.id}`} className="h-[90%]">
           <Image
             className=" h-[90%] w-[90%] m-auto object-contain rounded-md"
@@ -35,7 +35,7 @@ const BookCard = ({ book }) => {
           {book?.authors[0]?.name}
         </h5>
 
-        <Flex className={"absolute bottom-5 "}>
+        <Flex className={"md:absolute bottom-5 "}>
           <Link
             to={`/books/${book.id}`}
             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"

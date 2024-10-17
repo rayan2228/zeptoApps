@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { pageUpdate } from "../../redux/slices/paginationSlice";
+import Flex from "./Flex";
 
 const Pagination = ({ total }) => {
   let totalPages = Math.floor(total / 32);
@@ -111,7 +112,7 @@ const Pagination = ({ total }) => {
   };
 
   return (
-    <div className="flex justify-center mt-5 pagination">
+    <Flex className="flex-row justify-center mt-5 ">
       {currentPage > 1 && (
         <button
           onClick={() => handleClick(currentPage - 1)}
@@ -131,7 +132,7 @@ const Pagination = ({ total }) => {
           Next
         </button>
       )}
-    </div>
+    </Flex>
   );
 };
 
