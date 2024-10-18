@@ -3,28 +3,28 @@ import Container from "../ui/Container";
 import Flex from "../ui/Flex";
 import heartIcon from "../../assets/icons/heart.svg";
 import heartFillIcon from "../../assets/icons/heartFill.svg";
-import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import SearchModal from "../modal/SearchModal";
+import { toggleTheme } from "../../redux/slices/themeModeSlice";
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [themeMode, setThemeMode] = useState("light");
+  const dispatch = useDispatch();
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
   const wishlists = useSelector((state) => state.wishlistSlice.items);
+  const themeMode = useSelector((state) => state.themeModeSlice.theme);
+  console.log(themeMode);
+  
   const handleChangeTheme = () => {
     if (themeMode === "light") {
-      setThemeMode("dark");
+      dispatch(toggleTheme("dark"));
     } else {
-      setThemeMode("light");
+      dispatch(toggleTheme("light"));
     }
   };
-  useEffect(() => {
-    document.querySelector("html").classList.remove("dark", "light");
-    document.querySelector("html").classList.add(themeMode);
-  }, [themeMode]);
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
