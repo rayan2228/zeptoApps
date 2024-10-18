@@ -112,7 +112,7 @@ const Pagination = ({ total }) => {
   };
 
   return (
-    <Flex className="flex-col justify-center gap-4 mt-5 sm:flex-row sm:gap-0 ">
+    <Flex className="flex-col justify-center w-full gap-4 mt-5 sm:flex-row sm:gap-0 ">
       {currentPage > 1 && (
         <button
           onClick={() => handleClick(currentPage - 1)}
