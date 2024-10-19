@@ -12,15 +12,15 @@ const BookCardSearch = ({ book }) => {
         <Image
           className=" h-[90%] w-[90%] m-auto object-contain rounded-md"
           src={book?.formats["image/jpeg"] || bookPlaceholder}
-          alt={book.title}
+          alt={book?.title}
         />
       </Flex>
       <Flex className="flex-col justify-between p-4 leading-normal">
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          {book.title.slice(0, 50) + " ..."}
+        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" title={book.title}>
+          {book.title?.slice(0, 50) + " ..."}
         </h5>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          {book?.subjects[0].slice(0, 100)}
+          {book?.subjects[0]?.slice(0, 100)}
         </p>
         <h5 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">
           {book?.authors[0]?.name}

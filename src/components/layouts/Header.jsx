@@ -1,23 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Container from "../ui/Container";
 import Flex from "../ui/Flex";
 import heartIcon from "../../assets/icons/heart.svg";
 import heartFillIcon from "../../assets/icons/heartFill.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchModal from "../modal/SearchModal";
 import { toggleTheme } from "../../redux/slices/themeModeSlice";
-
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
-
+  const location = useLocation();
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
   const wishlists = useSelector((state) => state.wishlistSlice.items);
   const themeMode = useSelector((state) => state.themeModeSlice.theme);
-  
+
   const handleChangeTheme = () => {
     if (themeMode === "light") {
       dispatch(toggleTheme("dark"));
@@ -25,7 +24,9 @@ const Header = () => {
       dispatch(toggleTheme("light"));
     }
   };
-
+  useEffect(() => {
+    closeModal();
+  }, [location]);
   return (
     <nav className="bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700">
       <Container>

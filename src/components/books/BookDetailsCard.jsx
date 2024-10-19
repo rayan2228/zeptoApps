@@ -1,6 +1,7 @@
 import Image from "../ui/Image";
 import Flex from "../ui/Flex";
 import bookPlaceholder from "../../assets/bookPlaceholder.png";
+import { Link } from "react-router-dom";
 const BookDetailsCard = ({ book }) => {
   return (
     <Flex className="flex-col mb-3 bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
@@ -8,11 +9,21 @@ const BookDetailsCard = ({ book }) => {
         <Image
           className="object-contain w-[90%] h-[90%] rounded-md "
           src={book?.formats["image/jpeg"] || bookPlaceholder}
-          alt={book.title}
+          alt={book?.title}
         />
       </Flex>
       <Flex className="flex-col justify-between flex-grow p-4 leading-normal">
-        <h5 className="title">{book?.title}</h5>
+        <Flex className={"justify-between"}>
+          <h5 className="title" title={book.title}>
+            {book?.title}
+          </h5>
+          <Link
+            to={"/"}
+            className="inline-flex items-center px-6 py-2 text-xl font-medium text-center text-white capitalize bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+          >
+            back
+          </Link>
+        </Flex>
         <h5 className="title">
           Author : <span className="details">{book?.authors[0]?.name}</span>
         </h5>

@@ -17,14 +17,14 @@ const BookCard = ({ book }) => {
           <Image
             className=" h-[90%] w-[90%] m-auto object-contain rounded-md"
             src={book?.formats["image/jpeg"] || bookPlaceholder}
-            alt={book.title}
+            alt={book?.title}
           />
         </Link>
       </Flex>
       <div className="p-5">
         <Link to={`/books/${book.id}`}>
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            {book.title?.slice(0, 50) + " ..."}
+          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" title={book.title}>
+            {book?.title?.slice(0, 50) + " ..."}
           </h5>
         </Link>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">

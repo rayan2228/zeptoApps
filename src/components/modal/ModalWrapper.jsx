@@ -1,8 +1,8 @@
+
 import closeIcon from "../../assets/icons/close.svg";
 import Image from "../ui/Image";
 import PortalModal from "./PortalModal";
 const ModalWrapper = ({ onClose, children }) => {
-    
   return (
     <PortalModal>
       <section className="fixed top-0 left-0 z-50 grid w-full h-full place-items-center bg-slate-800/50 backdrop-blur-sm">
