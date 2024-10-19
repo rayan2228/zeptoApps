@@ -7,8 +7,6 @@ export const apiSlice = createApi({
     endpoints: (builder) => ({
         getAllBooks: builder.query({
             query: ({currentPage, topic}) => {
-                console.log("t",topic);
-                
                 return topic != "choose an option" ? `/books/?page=${currentPage}&topic=${topic}` : `/books/?page=${currentPage}`
             },
             keepUnusedDataFor: 4000

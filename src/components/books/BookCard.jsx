@@ -32,7 +32,7 @@ const BookCard = ({ book }) => {
         </p>
 
         <h5 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">
-          {book?.authors[0]?.name}
+          {book?.authors[0]?.name.slice(0, 25)}
         </h5>
 
         <Flex className={"md:absolute bottom-5 "}>
