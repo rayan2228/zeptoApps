@@ -6,15 +6,19 @@ export const apiSlice = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_API_BASEURL }),
     endpoints: (builder) => ({
         getAllBooks: builder.query({
-            query: (currentPage) => `/books/?page=${currentPage}`,
-            keepUnusedDataFor:4000
+            query: ({currentPage, topic}) => {
+                console.log("t",topic);
+                
+                return topic != "choose an option" ? `/books/?page=${currentPage}&topic=${topic}` : `/books/?page=${currentPage}`
+            },
+            keepUnusedDataFor: 4000
         }),
         getSearchResults: builder.query({
             query: (search) => `/books?search=${search}`
         }),
         getBookById: builder.query({
             query: (bookId) => `/books/${bookId}`,
-            keepUnusedDataFor:4000
+            keepUnusedDataFor: 4000
         })
     }),
 })

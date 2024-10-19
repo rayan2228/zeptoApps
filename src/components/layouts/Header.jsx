@@ -8,6 +8,7 @@ import { useState } from "react";
 import SearchModal from "../modal/SearchModal";
 import { toggleTheme } from "../../redux/slices/themeModeSlice";
 
+
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
@@ -16,7 +17,6 @@ const Header = () => {
   const closeModal = () => setIsModalOpen(false);
   const wishlists = useSelector((state) => state.wishlistSlice.items);
   const themeMode = useSelector((state) => state.themeModeSlice.theme);
-  console.log(themeMode);
   
   const handleChangeTheme = () => {
     if (themeMode === "light") {
@@ -27,7 +27,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900">
+    <nav className="bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700">
       <Container>
         <Flex className="flex-wrap items-center justify-between p-4 ">
           <Link
