@@ -3,7 +3,7 @@ import { pageUpdate } from "../../redux/slices/paginationSlice";
 import Flex from "./Flex";
 
 const Pagination = ({ total }) => {
-  let totalPages = Math.floor(total / 32);
+  let totalPages = Math.ceil(total / 32);
   const currentPage = useSelector((state) => state.paginationSlice.page);
 
   const dispatch = useDispatch();
